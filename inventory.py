@@ -139,6 +139,7 @@ class ItopInventory(object):
     def ansible_add_vars(self, host, inventory, srv, srv_elem, itop_class):
         """
         Add special var for a host in the _meta key of the inventory
+        return inventory
         """
         if host not in inventory["_meta"]["hostvars"]:
             inventory["_meta"]["hostvars"][host] = {}
