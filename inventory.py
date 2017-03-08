@@ -1,6 +1,6 @@
-#!/usr/bin/python3.4
+#!/usr/bin/python
 # coding: utf8
-import configparser
+import ConfigParser
 import json
 import re
 import requests
@@ -8,11 +8,10 @@ import argparse
 
 class ItopInventory(object):
     def __init__(self, configfile):
-        config = configparser.ConfigParser()
+        config = ConfigParser.ConfigParser()
         self.config = config
         try:
-            with open(configfile) as f:
-                config.read_file(f)
+            config.read(configfile)
         except IOError:
             print("No config.ini file found")
         self.pattern = re.compile("^[a-zA-Z]+::[0-9]+$")
